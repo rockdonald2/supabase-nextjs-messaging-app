@@ -7,3 +7,9 @@
     max-width: 75vw;
     margin: 0 auto;
 }
+
+@media (min-width: 1200px) {
+    #__next {
+        max-width: 50vw;
+    }
+}

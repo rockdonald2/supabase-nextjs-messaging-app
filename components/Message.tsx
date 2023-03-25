@@ -1,9 +1,17 @@
-import { Avatar, Container, Divider, Paper, Stack, Badge, Tooltip } from '@mui/material';
+import {
+    Avatar,
+    Container,
+    Divider,
+    Paper,
+    Stack,
+    Badge,
+    Tooltip,
+    Typography,
+} from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { MessageType } from '@/types/db_types';
 import { useAuthContext } from '@/utils/AuthContext';
 import { usePresenceContext } from '@/utils/PresenceContext';
-import { useEffect } from 'react';
 
 const Item = styled(Paper)(({ theme }) => ({
     textAlign: 'center',
@@ -30,7 +38,7 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
     },
 }));
 
-function Message({ message }: { message: MessageType }): JSX.Element {
+const Message = ({ message }: { message: MessageType }): JSX.Element => {
     const { user } = useAuthContext();
     const { presenceState } = usePresenceContext();
 
@@ -76,11 +84,15 @@ function Message({ message }: { message: MessageType }): JSX.Element {
                                 : '2px solid lightgrey',
                     }}
                 >
-                    {message.msg}
+                    <Typography
+                        sx={{ whiteSpace: 'pre-line', textAlign: 'left' }}
+                    >
+                        {message.msg}
+                    </Typography>
                 </Item>
             </Stack>
         </Container>
     );
-}
+};
 
 export default Message;

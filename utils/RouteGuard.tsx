@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import { useAuthContext } from './AuthContext';
-import { Stack } from '@mui/material';
+import CircularLoading from '@/components/CircularLoading';
 
 const pathsThatRequireLogin = ['/'];
 const pathsThatRequireNoLogin = ['/login', '/register'];
@@ -28,11 +28,11 @@ export const RouteGuard = ({ children }) => {
     }
 
     if (!isAuthenticated && pathsThatRequireLogin.includes(currentPath)) {
-        return <Stack />; // required because both on client-side and both on server-side we must return the same component type
+        return <CircularLoading />; // required because both on client-side and both on server-side we must return the same component type
     }
 
     if (isAuthenticated && pathsThatRequireNoLogin.includes(currentPath)) {
-        return <Stack />;
+        return <CircularLoading />;
     }
 
     return children;

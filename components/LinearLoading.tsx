@@ -1,6 +1,6 @@
 import { Box, LinearProgress } from "@mui/material";
 
-const Loading = () => {
+const LinearLoading = () => {
     return (
         <Box sx={{ width: '100%' }}>
             <LinearProgress />
@@ -8,4 +8,4 @@ const Loading = () => {
     );
 };
 
-export default Loading;
+export default LinearLoading;

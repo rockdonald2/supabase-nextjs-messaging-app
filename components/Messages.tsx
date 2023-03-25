@@ -1,10 +1,10 @@
 import { Container } from '@mui/material';
 import { MessagesType } from '@/types/db_types';
 import Message from './Message';
-import Loading from './Loading';
+import LinearLoading from './LinearLoading';
 import { useEffect, useRef } from 'react';
 
-function Messages({ messages }: { messages: MessagesType }): JSX.Element {
+const Messages = ({ messages }: { messages: MessagesType }): JSX.Element => {
     const messagesEndRef = useRef<HTMLDivElement>(null);
     const scrollToBottomOfMessages = () => {
         messagesEndRef?.current?.scrollIntoView({ behavior: 'smooth' });
@@ -24,11 +24,11 @@ function Messages({ messages }: { messages: MessagesType }): JSX.Element {
                     <Message key={idx} message={message} />
                 ))
             ) : (
-                <Loading />
+                <LinearLoading />
             )}
             <div ref={messagesEndRef} />
         </Container>
     );
-}
+};
 
 export default Messages;

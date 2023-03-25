@@ -10,7 +10,7 @@ const quickActions: QuickActionType[] = [
     { icon: <LogoutIcon />, name: 'Logout', action: 'signout' },
 ];
 
-export default function QuickActions() {
+const QuickActions = () => {
     const { push } = useRouter();
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
@@ -53,4 +53,6 @@ export default function QuickActions() {
             </SpeedDial>
         </Box>
     );
-}
+};
+
+export default QuickActions;

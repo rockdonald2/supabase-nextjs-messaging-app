@@ -5,7 +5,7 @@ import { supabase } from '@/utils/supabase';
 import { useAuthContext } from '@/utils/AuthContext';
 import { MessageType } from '@/types/db_types';
 
-function MessageInput(): JSX.Element {
+const MessageInput = (): JSX.Element => {
     const [message, setMessage] = useState<string>('');
     const { user } = useAuthContext();
 
@@ -65,6 +65,6 @@ function MessageInput(): JSX.Element {
             </Grid>
         </>
     );
-}
+};
 
 export default MessageInput;

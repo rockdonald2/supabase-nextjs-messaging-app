@@ -2,14 +2,14 @@ import Head from 'next/head';
 import MessageInput from '@/components/MessageInput';
 import { Stack } from '@mui/material';
 import Messages from '@/components/Messages';
-import { useStore } from '@/utils/UseStore';
+import { useMessages } from '@/utils/UseMessages';
 import SignOut from '@/components/SignOut';
 import { useAuthContext } from '@/utils/AuthContext';
 import { PresenceContextProvider } from '@/utils/PresenceContext';
 
 function Home(): JSX.Element {
     const { user } = useAuthContext();
-    const { messages } = useStore();
+    const { messages } = useMessages();
     const uniqueKey = user?.email;
 
     return (

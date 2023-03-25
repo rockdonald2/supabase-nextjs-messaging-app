@@ -5,7 +5,7 @@ import { MessagesType, MessageType } from '@/types/db_types';
 
 let messageListener: RealtimeChannel = null;
 
-export const useStore = () => {
+export const useMessages = () => {
     const [newMessage, handleNewMessage] = useState<MessageType>(
         null as MessageType
     );
